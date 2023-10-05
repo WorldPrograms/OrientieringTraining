@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2107722126376342289}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: DownAtSibling
         m_Mode: 1
@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 4381875513942289580}
   - component: {fileID: 4381875513942289583}
   - component: {fileID: 4381875513942289582}
-  - component: {fileID: 2107722126376342289}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -258,7 +257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2107722126376342289}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
@@ -270,25 +269,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2107722126376342289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4381875513942289584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077e7cfd72ee5df4f84b8b1b6a29d5bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsStart: 0
-  IsNullTime: 1
-  _timeText: {fileID: 3585693269718589553}
-  _imageButton: {fileID: 4381875513942289583}
-  _activeColor: {r: 0, g: 0.83137256, b: 0.6721788, a: 1}
-  _afterFinishColor: {r: 1, g: 0, b: 0.56096745, a: 1}
-  _nameText: {fileID: 4381875514653371138}
 --- !u!1 &4381875514653371140
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +547,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2107722126376342289}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: UpAtSibling
         m_Mode: 1
@@ -699,7 +679,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2107722126376342289}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Destoroy
         m_Mode: 1
