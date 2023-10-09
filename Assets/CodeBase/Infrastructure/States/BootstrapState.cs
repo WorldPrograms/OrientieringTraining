@@ -34,7 +34,6 @@ namespace CodeBase.Infrastructure.States
 
     private void RegisterServices()
     {
-      //_services.RegisterSingle<IInputService>(InputService());
       _services.RegisterSingle<IAssetProvider>(new AssetProvider());
       _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
       _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>()));
@@ -44,13 +43,5 @@ namespace CodeBase.Infrastructure.States
 
     private void EnterLoadLevel() =>
       _stateMachine.Enter<LoadProgressState>();
-
-    /*private static IInputService InputService()
-    {
-      if (Application.isEditor)
-        return new StandaloneInputService();
-      else
-        return new MobileInputService();
-    }*/
   }
 }
