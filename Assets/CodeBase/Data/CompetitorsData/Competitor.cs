@@ -2,7 +2,7 @@ namespace CodeBase.Data
 {
     public class Competitor: ICompetitor
     {
-        public Competitor(string firstName, string lastName, Gender gender,
+        public Competitor(string firstName, Gender gender, string lastName = null,
             AgeGroup group = AgeGroup.OG, string customGroupName = null)
         {
             FirstName = firstName;

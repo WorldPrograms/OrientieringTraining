@@ -1,9 +1,9 @@
 ﻿using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.CompetitorsServise;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Infrastructure.Services.SaveLoad;
-using UnityEngine;
 
 namespace CodeBase.Infrastructure.States
 {
@@ -38,7 +38,7 @@ namespace CodeBase.Infrastructure.States
       _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
       _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>()));
       _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
-           
+      _services.RegisterSingle<ICompetitorsServise>(new CompetitorsServise());
     }
 
     private void EnterLoadLevel() =>
