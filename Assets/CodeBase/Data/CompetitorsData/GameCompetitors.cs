@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace CodeBase.Data
 {
@@ -6,11 +7,10 @@ namespace CodeBase.Data
     {
         public List<Competitor> AllCompetitors { get; set; } = new List<Competitor>();
 
-        public void AdNewCompetitor(string firstName, Gender gender, string lastName = null,
-            AgeGroup group = AgeGroup.OG, string customGroupName = null)
+        public void AdCompetitor(Competitor competitor)
         {
-            Competitor newCompetitor = new Competitor(firstName, gender, lastName, group, customGroupName);
-            AllCompetitors.Add(newCompetitor);
+            AllCompetitors.Add(competitor);
+            Debug.Log(competitor);
         }
     }
 }

@@ -10,8 +10,8 @@ namespace CodeBase.Infrastructure.Services.CompetitorsServise
             GameCompetitors = new GameCompetitors();
         }
 
-        public GameEvents GameEvents;
-        public GameCompetitors GameCompetitors;
+        public GameEvents GameEvents { get; set; }
+        public GameCompetitors GameCompetitors { get; set; }
 	}
 }
 

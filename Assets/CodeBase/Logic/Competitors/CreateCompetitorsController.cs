@@ -1,18 +1,24 @@
+using CodeBase.Data;
+using CodeBase.Infrastructure.Services;
+using CodeBase.Infrastructure.Services.CompetitorsServise;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateCompetitorsController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private ICompetitorsServise _competitorsServise;
+    [SerializeField] private InputField _input;
+    void Awake()
     {
-        
+        _competitorsServise = AllServices.Container.Single<ICompetitorsServise>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTestButtonDown()
     {
-        
+        Competitor newCompetitor = new Competitor(firstName: _input.text);
+        _competitorsServise.GameCompetitors.AdCompetitor(newCompetitor);
     }
 }
