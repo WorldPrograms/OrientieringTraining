@@ -4,17 +4,15 @@ namespace CodeBase.Data
 {
     public class Group
     {
-        public Group(AgeGroup group = AgeGroup.OG, Gender gender = Gender.None, string customGroupName = null)
+        public Group(string group, Gender gender = Gender.None)
         {
             AgeGroup = group;
-            CustomGroupName = customGroupName;
             Gender = gender;
             CompetitorsInGroup = new List<Competitor>();
         }
 
         public List<Competitor> CompetitorsInGroup;
-        public AgeGroup AgeGroup;
-        public string CustomGroupName;
+        public string AgeGroup;
         public Gender Gender;
     }
 }

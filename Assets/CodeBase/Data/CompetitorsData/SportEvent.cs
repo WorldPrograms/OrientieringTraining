@@ -19,7 +19,7 @@ namespace CodeBase.Data
         public DateTime DateTimeStart { get; set; }
         public List<CompetitorsAgeGroupOnEvent> CompetitorsAgeGroups { get; set; }
 
-        public void AdNewCompetitorsAgeGroup(AgeGroup ageGroupType, string customGroupName = null)
+        public void AdNewCompetitorsAgeGroup(string ageGroupType, string customGroupName = null)
         {
             CompetitorsAgeGroupOnEvent competitorsAgeGroupOnEvent = new CompetitorsAgeGroupOnEvent(ageGroupType,customGroupName);
             CompetitorsAgeGroups.Add(competitorsAgeGroupOnEvent);

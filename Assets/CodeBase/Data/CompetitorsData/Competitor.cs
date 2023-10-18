@@ -2,13 +2,11 @@ namespace CodeBase.Data
 {
     public class Competitor: ICompetitor
     {
-        public Competitor(string firstName, string lastName = null, Gender gender = Gender.None, 
-            AgeGroup group = AgeGroup.OG, string customGroupName = null)
+        public Competitor(string firstName, Gender gender, string group, string lastName = null)
         {
             FirstName = firstName;
             LastName = lastName;
             AgeGroup = group;
-            CustomGroupName = customGroupName;
             Gender = gender;
         }
 
@@ -16,7 +14,6 @@ namespace CodeBase.Data
         public string LastName { get; set; }
         public Gender Gender { get; set; }
 
-        public AgeGroup AgeGroup { get; set; }
-        public string CustomGroupName { get; set; }
+        public string AgeGroup { get; set; }
     }
 }

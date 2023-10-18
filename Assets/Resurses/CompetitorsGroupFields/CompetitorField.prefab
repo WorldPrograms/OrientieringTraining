@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c695c0cb6ecfa484bbd7d6826a5ba3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _competitorNameText: {fileID: 3797737016627744035}
-  _competitorNumber: {fileID: 3852437681959012018}
+  CompetitorNameText: {fileID: 3797737016627744035}
+  CompetitorNumber: {fileID: 3852437681959012018}
 --- !u!1 &2058854817268799760
 GameObject:
   m_ObjectHideFlags: 0

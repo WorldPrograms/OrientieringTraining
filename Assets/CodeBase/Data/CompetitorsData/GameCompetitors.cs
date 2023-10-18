@@ -6,25 +6,26 @@ namespace CodeBase.Data
 {
     public class GameCompetitors
     {
-        //public List<Competitor> AllCompetitors { get; private set; } = new List<Competitor>();
-
-        public List<Group> AllGroups { get; set; } = new List<Group>();
+        public List<Group> AllGroups { get; private set; } = new List<Group>();
 
         public void AdCompetitor(Competitor competitor)
         {
             Group group = GetGroup(competitor.AgeGroup, competitor.Gender);
             if (group == null)
+            {
                 group = new Group(
                     group: competitor.AgeGroup,
-                    gender: competitor.Gender,
-                    customGroupName: competitor.CustomGroupName
+                    gender: competitor.Gender
                     );
+                AllGroups.Add(group);
+            }
+                
 
             group.CompetitorsInGroup.Add(competitor);
-            Debug.Log(competitor);
+            Debug.Log(competitor.FirstName);
         }
 
-        private Group GetGroup(AgeGroup ageGroup, Gender gender)
+        private Group GetGroup(string ageGroup, Gender gender)
         {
             foreach (var group in AllGroups)
             {
@@ -32,17 +33,6 @@ namespace CodeBase.Data
                     return group;
             }
             return null;
-        }
-
-        public List<Competitor> GetGroupCompetitor(AgeGroup ageGroup, string customName)
-        {
-            List<Competitor> competitors = new List<Competitor>();
-            foreach (var competitor in AllCompetitors)
-            {
-                if (competitor.AgeGroup == ageGroup)
-                    competitors.Add(competitor);
-            }
-            return competitors;
         }
     }
 }

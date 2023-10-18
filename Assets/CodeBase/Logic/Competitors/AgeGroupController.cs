@@ -7,7 +7,7 @@ public class AgeGroupController : MonoBehaviour
     public Text NameGroup;
     [SerializeField] private Transform _competitorsParent;
     [SerializeField] private CompetitorFieldController _competitorPrefab;
-    private int _lastNumber = 0;
+    private int _lastNumber = 1;
 
     public void InitialCompetitor(Competitor competitor)
     {

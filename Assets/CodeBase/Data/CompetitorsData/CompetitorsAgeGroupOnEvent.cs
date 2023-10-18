@@ -4,15 +4,13 @@ namespace CodeBase.Data
 {
     public class CompetitorsAgeGroupOnEvent
     {
-        public CompetitorsAgeGroupOnEvent(AgeGroup ageGroupType, string customGroupName = null)
+        public CompetitorsAgeGroupOnEvent(string ageGroupType, string customGroupName = null)
         {
             Competitors = new List<CompetitorOnEvent>();
             AgeGroupType = ageGroupType;
-            if (ageGroupType == AgeGroup.CustomGroup)
-                CustomGroupName = customGroupName;
         }
 
-        public AgeGroup AgeGroupType { get; set; }
+        public string AgeGroupType { get; set; }
         public string CustomGroupName { get; set; }
         public List<CompetitorOnEvent> Competitors { get; set; }
 

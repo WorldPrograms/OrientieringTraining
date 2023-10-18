@@ -126,8 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0b5730921344078b3bf16aa3057d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _competitorsContent: {fileID: 5176812409000406336}
-  _competitorPrefab: {fileID: 1993670318899090108, guid: 6320b5f1eded6f840845de4e306e15c3, type: 3}
+  NameGroup: {fileID: 5176812409514203638}
+  _competitorsParent: {fileID: 5176812409000406339}
+  _competitorPrefab: {fileID: 1552459690125325382, guid: 6320b5f1eded6f840845de4e306e15c3, type: 3}
 --- !u!114 &5176812409000406341
 MonoBehaviour:
   m_ObjectHideFlags: 0
