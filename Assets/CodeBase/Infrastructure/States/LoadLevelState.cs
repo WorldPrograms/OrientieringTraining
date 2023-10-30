@@ -7,7 +7,7 @@ namespace CodeBase.Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
   {
-    private const string InitialPointTag = "InitialPoint";
+    private const string ProtocolParentTag = "ProtocolParent";
 
     private readonly GameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
@@ -36,21 +36,21 @@ namespace CodeBase.Infrastructure.States
 
     private void OnLoaded()
     {
-      //InitGameWorld();
-      //InformProgressReaders();
+      InitGameWorld();
+      InformProgressReaders();
 
       _stateMachine.Enter<GameLoopState>();
     }
 
-    /*private void InformProgressReaders()
+    private void InformProgressReaders()
     {
       foreach (ISavedProgressReader progressReader in _gameFactory.ProgressReaders)
         progressReader.LoadProgress(_progressService.Progress);
-    }*/
+    }
 
     private void InitGameWorld()
     {
-      GameObject hero = _gameFactory.CreateHero(GameObject.FindWithTag(InitialPointTag));
+      _gameFactory.CreateProtocol(GameObject.FindWithTag(ProtocolParentTag));
       _gameFactory.CreateHud();
 
       //CameraFollow(hero);

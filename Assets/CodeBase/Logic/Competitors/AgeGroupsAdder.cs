@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using CodeBase.Data;
+using CodeBase.Infrastructure.AssetManagement;
 using UnityEngine;
 
-public class AgeGroupsAdder : MonoBehaviour
+public class AgeGroupsAdder : IAgeGroupsAdder
 {
-    [SerializeField] private Transform _groupsParent;
-    [SerializeField] private AgeGroupController _groupPrefab;
-    public List<AgeGroupController> ageGroupControllers = new List<AgeGroupController>();
+    private readonly IAssetProvider _assets;
+    private List<AgeGroupController> _ageGroupControllers = new List<AgeGroupController>();
 
-    public void InstantiateGroup(Group competitorsAgeGroup)
+    public AgeGroupsAdder(IAssetProvider assets)
     {
-        AgeGroupController ageGroupController = Instantiate(_groupPrefab, _groupsParent);
+        _assets = assets;
+    }
+
+    public void InstantiateGroup(Group competitorsAgeGroup, Transform at)
+    {
+        AgeGroupController ageGroupController = _assets.Instantiate(AssetPath.PathGroup, at).GetComponent<AgeGroupController>();   //Instantiate(_groupPrefab, _groupsParent);
         GroupNameSet(competitorsAgeGroup, ageGroupController);
         InstanceCompetitors(competitorsAgeGroup, ageGroupController);
-        ageGroupControllers.Add(ageGroupController);
+        _ageGroupControllers.Add(ageGroupController);
     }
 
     private void GroupNameSet(Group competitorsAgeGroup, AgeGroupController ageGroupController)
@@ -32,7 +37,7 @@ public class AgeGroupsAdder : MonoBehaviour
     {
         string nameOfGroup;
         if (competitorsAgeGroup.AgeGroup != AgeGroupExample.OG.ToString())
-            nameOfGroup = charOfGender + competitorsAgeGroup.AgeGroup.Remove(0,1);
+            nameOfGroup = charOfGender + competitorsAgeGroup.AgeGroup.Remove(0, 1);
         else
             nameOfGroup = competitorsAgeGroup.AgeGroup;
         return nameOfGroup;

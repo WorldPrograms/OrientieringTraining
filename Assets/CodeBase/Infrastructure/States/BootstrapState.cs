@@ -36,9 +36,10 @@ namespace CodeBase.Infrastructure.States
     {
       _services.RegisterSingle<IAssetProvider>(new AssetProvider());
       _services.RegisterSingle<IPersistentProgressService>(new PersistentProgressService());
-      _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>()));
-      _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
       _services.RegisterSingle<ICompetitorsServise>(new CompetitorsServise());
+      _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<ICompetitorsServise>(), new AgeGroupsAdder(_services.Single<IAssetProvider>())));
+      _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
+      
     }
 
     private void EnterLoadLevel() =>
