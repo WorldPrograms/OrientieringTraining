@@ -22,14 +22,14 @@ namespace CodeBase.Data
                 
 
             group.CompetitorsInGroup.Add(competitor);
-            Debug.Log(competitor.FirstName);
         }
 
         private Group GetGroup(string ageGroup, Gender gender)
         {
             foreach (var group in AllGroups)
             {
-                if (group.AgeGroup == ageGroup && group.Gender == gender)
+                if (group.AgeGroup == ageGroup && group.Gender == gender ||
+                    group.AgeGroup == ageGroup && ageGroup == AgeGroupExample.OG.ToString())
                     return group;
             }
             return null;

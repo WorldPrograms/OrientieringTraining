@@ -9,7 +9,7 @@ public class AgeGroupController : MonoBehaviour
     [SerializeField] private CompetitorFieldController _competitorPrefab;
     private int _lastNumber = 1;
 
-    public void InitialCompetitor(Competitor competitor)
+    public void InitialCompetitor(ICompetitor competitor)
     {
         CompetitorFieldController newCompetitorField = Instantiate(_competitorPrefab, _competitorsParent);
         newCompetitorField.CompetitorNameText.text = competitor.LastName ?? "" + competitor.FirstName;

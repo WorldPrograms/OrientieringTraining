@@ -8,10 +8,10 @@ namespace CodeBase.Data
         {
             AgeGroup = group;
             Gender = gender;
-            CompetitorsInGroup = new List<Competitor>();
+            CompetitorsInGroup = new List<ICompetitor>();
         }
 
-        public List<Competitor> CompetitorsInGroup;
+        public List<ICompetitor> CompetitorsInGroup;
         public string AgeGroup;
         public Gender Gender;
     }

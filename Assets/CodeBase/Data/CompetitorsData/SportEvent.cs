@@ -17,11 +17,11 @@ namespace CodeBase.Data
         public string EventName { get; set; }
         public DateTime DateTimeCreate { get; set; }
         public DateTime DateTimeStart { get; set; }
-        public List<CompetitorsAgeGroupOnEvent> CompetitorsAgeGroups { get; set; }
+        public List<Group> CompetitorsAgeGroups { get; set; }
 
-        public void AdNewCompetitorsAgeGroup(string ageGroupType, string customGroupName = null)
+        public void AdNewCompetitorsAgeGroup(string ageGroup)
         {
-            CompetitorsAgeGroupOnEvent competitorsAgeGroupOnEvent = new CompetitorsAgeGroupOnEvent(ageGroupType,customGroupName);
+            Group competitorsAgeGroupOnEvent = new Group(ageGroup);
             CompetitorsAgeGroups.Add(competitorsAgeGroupOnEvent);
         }
     }

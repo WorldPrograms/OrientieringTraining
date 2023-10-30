@@ -1,10 +1,7 @@
 using CodeBase.Data;
 using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.CompetitorsServise;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CreateCompetitorsController : MonoBehaviour
 {
@@ -20,7 +17,7 @@ public class CreateCompetitorsController : MonoBehaviour
     private void Start()
     {
         _competitorsServise.GameCompetitors.AdCompetitor(new Competitor("Mark", gender: Gender.Male, group: AgeGroupExample.OG.ToString()));
-        _competitorsServise.GameCompetitors.AdCompetitor(new Competitor("Ivan",gender: Gender.Male, AgeGroupExample.OG.ToString()));
+        _competitorsServise.GameCompetitors.AdCompetitor(new Competitor("Ivananina",gender: Gender.Female, AgeGroupExample.OG.ToString()));
 
         _competitorsServise.GameCompetitors.AdCompetitor(new Competitor("Masha", gender: Gender.Female, group: AgeGroupExample.G10.ToString()));
         _competitorsServise.GameCompetitors.AdCompetitor(new Competitor("Misha", gender: Gender.Male, group: AgeGroupExample.G10.ToString()));

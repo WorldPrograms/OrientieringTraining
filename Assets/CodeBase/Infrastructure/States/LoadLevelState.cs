@@ -48,13 +48,13 @@ namespace CodeBase.Infrastructure.States
         progressReader.LoadProgress(_progressService.Progress);
     }*/
 
-    /*private void InitGameWorld()
+    private void InitGameWorld()
     {
       GameObject hero = _gameFactory.CreateHero(GameObject.FindWithTag(InitialPointTag));
       _gameFactory.CreateHud();
 
-      CameraFollow(hero);
-    }*/
+      //CameraFollow(hero);
+    }
 
     /*private void CameraFollow(GameObject hero) =>
       Camera.main.GetComponent<CameraFollow>().Follow(hero);*/

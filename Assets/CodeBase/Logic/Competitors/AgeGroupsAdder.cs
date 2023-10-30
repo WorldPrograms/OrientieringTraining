@@ -15,7 +15,6 @@ public class AgeGroupsAdder : MonoBehaviour
         GroupNameSet(competitorsAgeGroup, ageGroupController);
         InstanceCompetitors(competitorsAgeGroup, ageGroupController);
         ageGroupControllers.Add(ageGroupController);
-        Debug.Log($"{competitorsAgeGroup.AgeGroup} created");
     }
 
     private void GroupNameSet(Group competitorsAgeGroup, AgeGroupController ageGroupController)
