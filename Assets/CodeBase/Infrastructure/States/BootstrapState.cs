@@ -4,13 +4,16 @@ using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.CompetitorsServise;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Infrastructure.Services.SaveLoad;
+using CodeBase.Logic;
 
 namespace CodeBase.Infrastructure.States
 {
     public class BootstrapState : IState
   {
     private const string Initial = "Initial";
-    private readonly GameStateMachine _stateMachine;
+    private const string AD_COMPETITOR_PANEL = "CompetitorAdPanel/AdCompetitorPanel";
+
+        private readonly GameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
     private readonly AllServices _services;
 
@@ -39,8 +42,9 @@ namespace CodeBase.Infrastructure.States
       _services.RegisterSingle<ICompetitorsServise>(new CompetitorsServise());
       _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<ICompetitorsServise>(), new AgeGroupsAdder(_services.Single<IAssetProvider>())));
       _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
-      
-    }
+      _services.RegisterSingle<ICompetitorAdderPanelServise>(new CompetitorAdderPanelServise(_services.Single<IAssetProvider>().Instantiate(AD_COMPETITOR_PANEL).GetComponent<CompetitorPanel>()));
+
+        }
 
     private void EnterLoadLevel() =>
       _stateMachine.Enter<LoadProgressState>();

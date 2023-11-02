@@ -1,4 +1,6 @@
-﻿using CodeBase.Infrastructure.Factory;
+﻿using CodeBase.Infrastructure.AssetManagement;
+using CodeBase.Infrastructure.Factory;
+using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
 using UnityEngine;
@@ -22,6 +24,7 @@ namespace CodeBase.Infrastructure.States
       _loadingCurtain = loadingCurtain;
       _gameFactory = gameFactory;
       _progressService = progressService;
+      
     }
 
     public void Enter(string sceneName)
@@ -38,7 +41,7 @@ namespace CodeBase.Infrastructure.States
     {
       InitGameWorld();
       InformProgressReaders();
-
+      
       _stateMachine.Enter<GameLoopState>();
     }
 
@@ -51,12 +54,6 @@ namespace CodeBase.Infrastructure.States
     private void InitGameWorld()
     {
       _gameFactory.CreateProtocol(GameObject.FindWithTag(ProtocolParentTag));
-      _gameFactory.CreateHud();
-
-      //CameraFollow(hero);
     }
-
-    /*private void CameraFollow(GameObject hero) =>
-      Camera.main.GetComponent<CameraFollow>().Follow(hero);*/
   }
 }

@@ -19,8 +19,6 @@ namespace CodeBase.Infrastructure.Factory
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
-        //public GameObject ProtocolGameObject { get; private set; }
-
         public GameFactory(IAssetProvider assets, ICompetitorsServise competitorsServise, IAgeGroupsAdder ageGroupsAdder)
         {
             _assets = assets;
@@ -53,9 +51,6 @@ namespace CodeBase.Infrastructure.Factory
             ProtocolCreated?.Invoke();
             //return protocol;
         }
-
-        public void CreateHud() =>
-            InstantiateRegistered(AssetPath.HudPath);
 
         public void Cleanup()
         {

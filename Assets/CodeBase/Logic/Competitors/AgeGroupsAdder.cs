@@ -16,7 +16,7 @@ public class AgeGroupsAdder : IAgeGroupsAdder
 
     public void InstantiateGroup(Group competitorsAgeGroup, Transform at)
     {
-        AgeGroupController ageGroupController = _assets.Instantiate(AssetPath.PathGroup, at).GetComponent<AgeGroupController>();   //Instantiate(_groupPrefab, _groupsParent);
+        AgeGroupController ageGroupController = _assets.Instantiate(AssetPath.PathGroup, at).GetComponent<AgeGroupController>();
         GroupNameSet(competitorsAgeGroup, ageGroupController);
         InstanceCompetitors(competitorsAgeGroup, ageGroupController);
         _ageGroupControllers.Add(ageGroupController);
