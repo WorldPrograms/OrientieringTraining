@@ -1,6 +1,6 @@
 namespace CodeBase.Infrastructure.Services
 {
-  public class AllServices
+    public partial class AllServices
   {
     private static AllServices _instance;
     public static AllServices Container => _instance ?? (_instance = new AllServices());
