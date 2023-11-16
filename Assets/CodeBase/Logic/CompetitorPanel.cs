@@ -15,19 +15,14 @@ namespace CodeBase.Logic
 
         public void Awake()
         {
-            DontDestroyOnLoad(this);
-            print("Readuawdfawfa");
+            //DontDestroyOnLoad(this);
         }
 
-        public void Hide()
+        public void Delite()
         {
-            _panel.SetActive(false);
+            Destroy(this);
         }
 
-        public void Show()
-        {
-            _panel.SetActive(true);
-        }
     }
 
 }

@@ -10,21 +10,23 @@ namespace CodeBase.Infrastructure.States
     public class LoadLevelState : IPayloadedState<string>
   {
     private const string ProtocolParentTag = "ProtocolParent";
+        private const string CanvasTag = "Canvas";
 
-    private readonly GameStateMachine _stateMachine;
+        private readonly GameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
     private readonly LoadingCurtain _loadingCurtain;
     private readonly IGameFactory _gameFactory;
     private readonly IPersistentProgressService _progressService;
+    private readonly ISlideServise _slideServise;
 
-    public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingCurtain loadingCurtain, IGameFactory gameFactory, IPersistentProgressService progressService)
+    public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingCurtain loadingCurtain, IGameFactory gameFactory, IPersistentProgressService progressService, ISlideServise slideServise)
     {
       _stateMachine = gameStateMachine;
       _sceneLoader = sceneLoader;
       _loadingCurtain = loadingCurtain;
       _gameFactory = gameFactory;
       _progressService = progressService;
-      
+      _slideServise = slideServise;
     }
 
     public void Enter(string sceneName)
@@ -53,7 +55,11 @@ namespace CodeBase.Infrastructure.States
 
     private void InitGameWorld()
     {
-      _gameFactory.CreateProtocol(GameObject.FindWithTag(ProtocolParentTag));
-    }
+      
+      _slideServise.Canvas = GameObject.FindGameObjectWithTag(CanvasTag).transform;
+      _slideServise.InstantiateSlide(SlidesConstants.ALL_USERS_SLIDE);
+            _slideServise.InstantiateSlide(SlidesConstants.AD_COMPETITOR_PANEL);
+       _gameFactory.CreateProtocol(GameObject.FindWithTag(ProtocolParentTag));
+        }
   }
 }

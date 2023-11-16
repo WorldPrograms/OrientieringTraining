@@ -1,4 +1,5 @@
-﻿using CodeBase.Infrastructure.AssetManagement;
+﻿using System;
+using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.CompetitorsServise;
@@ -11,13 +12,14 @@ namespace CodeBase.Infrastructure.States
     public class BootstrapState : IState
   {
     private const string Initial = "Initial";
-    private const string AD_COMPETITOR_PANEL = "CompetitorAdPanel/AdCompetitorPanel";
+ 
 
         private readonly GameStateMachine _stateMachine;
     private readonly SceneLoader _sceneLoader;
     private readonly AllServices _services;
+        
 
-    public BootstrapState(GameStateMachine stateMachine, SceneLoader sceneLoader, AllServices services)
+        public BootstrapState(GameStateMachine stateMachine, SceneLoader sceneLoader, AllServices services)
     {
       _stateMachine = stateMachine;
       _sceneLoader = sceneLoader;
@@ -42,11 +44,19 @@ namespace CodeBase.Infrastructure.States
       _services.RegisterSingle<ICompetitorsServise>(new CompetitorsServise());
       _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssetProvider>(), _services.Single<ICompetitorsServise>(), new AgeGroupsAdder(_services.Single<IAssetProvider>())));
       _services.RegisterSingle<ISaveLoadService>(new SaveLoadService(_services.Single<IPersistentProgressService>(), _services.Single<IGameFactory>()));
-      _services.RegisterSingle<ICompetitorAdderPanelServise>(new CompetitorAdderPanelServise(_services.Single<IAssetProvider>().Instantiate(AD_COMPETITOR_PANEL).GetComponent<CompetitorPanel>()));
+      _services.RegisterSingle<ISlideServise>(new SlideServise(_services.Single<IAssetProvider>()));
+      _services.RegisterSingle<ICompetitorAdderPanelServise>(new CompetitorAdderPanelServise(_services.Single<ISlideServise>()));
 
+            RegisterSlides();
         }
 
-    private void EnterLoadLevel() =>
-      _stateMachine.Enter<LoadProgressState>();
+        private void RegisterSlides()
+        {
+            _services.Single<ISlideServise>().RegisterSlide(SlidesConstants.AD_COMPETITOR_PANEL);
+            _services.Single<ISlideServise>().RegisterSlide(SlidesConstants.ALL_USERS_SLIDE);
+        }
+
+        private void EnterLoadLevel() =>
+            _stateMachine.Enter<LoadProgressState>();
   }
 }
