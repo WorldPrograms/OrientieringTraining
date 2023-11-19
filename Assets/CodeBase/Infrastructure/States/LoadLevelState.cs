@@ -18,8 +18,9 @@ namespace CodeBase.Infrastructure.States
     private readonly IGameFactory _gameFactory;
     private readonly IPersistentProgressService _progressService;
     private readonly ISlideServise _slideServise;
+    private readonly ICompetitorAdderPanelServise _competitorAdderPanelServise;
 
-    public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingCurtain loadingCurtain, IGameFactory gameFactory, IPersistentProgressService progressService, ISlideServise slideServise)
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, LoadingCurtain loadingCurtain, IGameFactory gameFactory, IPersistentProgressService progressService, ISlideServise slideServise, ICompetitorAdderPanelServise competitorAdderPanelServise)
     {
       _stateMachine = gameStateMachine;
       _sceneLoader = sceneLoader;
@@ -27,6 +28,7 @@ namespace CodeBase.Infrastructure.States
       _gameFactory = gameFactory;
       _progressService = progressService;
       _slideServise = slideServise;
+            _competitorAdderPanelServise = competitorAdderPanelServise;
     }
 
     public void Enter(string sceneName)
@@ -58,7 +60,7 @@ namespace CodeBase.Infrastructure.States
       
       _slideServise.Canvas = GameObject.FindGameObjectWithTag(CanvasTag).transform;
       _slideServise.InstantiateSlide(SlidesConstants.ALL_USERS_SLIDE);
-            _slideServise.InstantiateSlide(SlidesConstants.AD_COMPETITOR_PANEL);
+      _competitorAdderPanelServise.InstantiatePanel();
        _gameFactory.CreateProtocol(GameObject.FindWithTag(ProtocolParentTag));
         }
   }

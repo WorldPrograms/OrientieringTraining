@@ -14,15 +14,19 @@ namespace CodeBase.Infrastructure.Services
             _slideServise = slideServise;
         }
 
+        public void InstantiatePanel()
+        {
+            _panel = _slideServise.InstantiateSlide(SlidesConstants.AD_COMPETITOR_PANEL).GetComponent<CompetitorPanel>();
+        }
+
         public void ShowPanel()
         {
-            Debug.Log("wd");
-            _panel = _slideServise.InstantiateSlide(SlidesConstants.AD_COMPETITOR_PANEL).GetComponent<CompetitorPanel>();
+            _panel.Show();
         }
 
         public void HidePanel()
         {
-            _panel.Delite();
+            _panel.Hide();
         }
     }
 }

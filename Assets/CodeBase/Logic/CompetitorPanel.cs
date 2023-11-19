@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace CodeBase.Logic
 {
-    public class CompetitorPanel: MonoBehaviour
+    public class CompetitorPanel : MonoBehaviour
     {
         [SerializeField] private GameObject _panel;
 
@@ -13,14 +13,14 @@ namespace CodeBase.Logic
         public Dropdown GenderDropdown;
         public InputField CustomGroupName;
 
-        public void Awake()
+        public void Show()
         {
-            //DontDestroyOnLoad(this);
+            transform.GetChild(0).gameObject.SetActive(true);
         }
 
-        public void Delite()
+        public void Hide()
         {
-            Destroy(this);
+            transform.GetChild(0).gameObject.SetActive(false);
         }
 
     }
