@@ -11,14 +11,17 @@ namespace CodeBase.Logic
     {
         [SerializeField] private CompetitorPanel _competitorPanel;
         private ICompetitorsServise _competitorsServise;
+        private ProtocolCreater _protocolCreater;
 
         private void Awake()
         {
             _competitorPanel = GetComponent<CompetitorPanel>();
             _competitorsServise = AllServices.Container.Single<ICompetitorsServise>();
+            _protocolCreater= FindObjectOfType<ProtocolCreater>();
         }
 
-        public void OnCreateFinish()
+
+        public void OnCreateFinished()
         {
             string firstName = _competitorPanel.FirstNameField.text;
             string secondName = null;
@@ -26,15 +29,16 @@ namespace CodeBase.Logic
                 secondName = _competitorPanel.LastNameField.text;
 
             Gender gender = Gender.None;
-            if (_competitorPanel.GenderDropdown.itemText.text == Gender.Male.ToString())
+            if (_competitorPanel.GenderDropdown.options[_competitorPanel.GenderDropdown.value].text == Gender.Male.ToString())
                 gender = Gender.Male;
-            else if (_competitorPanel.GenderDropdown.itemText.text == Gender.Female.ToString())
+            else if (_competitorPanel.GenderDropdown.options[_competitorPanel.GenderDropdown.value].text == Gender.Female.ToString())
                 gender = Gender.Female;
-            string group = _competitorPanel.AgeGroupDropdown.itemText.text;
+            string group = _competitorPanel.AgeGroupDropdown.options[_competitorPanel.AgeGroupDropdown.value].text;
 
 
             Competitor competitor = new Competitor(firstName, gender, group, secondName);
             _competitorsServise.GameCompetitors.AdCompetitor(competitor);
+            _protocolCreater.CreateProtocol();
             _competitorPanel.Hide();
         }
     }

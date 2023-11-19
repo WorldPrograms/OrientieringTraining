@@ -12,8 +12,12 @@ public class AgeGroupController : MonoBehaviour
     public void InitialCompetitor(ICompetitor competitor)
     {
         CompetitorFieldController newCompetitorField = Instantiate(_competitorPrefab, _competitorsParent);
-        newCompetitorField.CompetitorNameText.text = competitor.LastName ?? "" + competitor.FirstName;
+        newCompetitorField.CompetitorNameText.text = competitor.LastName ?? "";
+        newCompetitorField.CompetitorNameText.text += " " + competitor.FirstName;
         newCompetitorField.CompetitorNumber.text = _lastNumber.ToString();
         _lastNumber++;
     }
+
+    public void Delite() => 
+        Destroy(this.gameObject);
 }

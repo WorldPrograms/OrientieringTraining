@@ -8,11 +8,9 @@ namespace CodeBase.Infrastructure.Factory
 {
   public interface IGameFactory:IService
   {
-    void CreateProtocol(GameObject at);
+    //void CreateProtocol(GameObject at);
     List<ISavedProgressReader> ProgressReaders { get; }
     List<ISavedProgress> ProgressWriters { get; }
-
-    event Action ProtocolCreated;
     void Cleanup();
   }
 }

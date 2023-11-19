@@ -123,7 +123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8624030697171452156}
         m_TargetAssemblyTypeName: CodeBase.Logic.CompetitorAdder, Assembly-CSharp
-        m_MethodName: OnCreateFinish
+        m_MethodName: OnCreateFinished
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -681,13 +681,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: "\u041C\u041610"
-      m_Image: {fileID: 0}
-    - m_Text: "\u041C\u041612"
-      m_Image: {fileID: 0}
-    - m_Text: "\u041C\u041614"
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1601,13 +1595,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: Male
-      m_Image: {fileID: 0}
-    - m_Text: Female
-      m_Image: {fileID: 0}
-    - m_Text: Not
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

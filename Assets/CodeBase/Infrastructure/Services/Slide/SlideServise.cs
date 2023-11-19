@@ -34,6 +34,7 @@ namespace CodeBase.Infrastructure.Services
         public SlideController InstantiateSlide(string name)
         {
             Slide slide = GetSlide(name);
+            slide.IsCreated= true;
             return _assetProvider.Instantiate(slide.SlideObject, Canvas).GetComponent<SlideController>();
         }
 

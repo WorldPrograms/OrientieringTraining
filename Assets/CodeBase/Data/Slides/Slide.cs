@@ -11,6 +11,7 @@
             SlideObject = slideController;
         }
 
+        public bool IsCreated = false;
         public string Name;
         public string SlideObject;
     }

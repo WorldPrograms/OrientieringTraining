@@ -14,6 +14,15 @@ public class AgeGroupsAdder : IAgeGroupsAdder
         _assets = assets;
     }
 
+    public void ClearGroups()
+    {
+        foreach (var controller in _ageGroupControllers)
+        {
+            controller.Delite();
+        }
+        _ageGroupControllers.Clear();
+    }
+
     public void InstantiateGroup(Group competitorsAgeGroup, Transform at)
     {
         AgeGroupController ageGroupController = _assets.Instantiate(AssetPath.PathGroup, at).GetComponent<AgeGroupController>();

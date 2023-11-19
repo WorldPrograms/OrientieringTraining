@@ -61,7 +61,8 @@ namespace CodeBase.Infrastructure.States
       _slideServise.Canvas = GameObject.FindGameObjectWithTag(CanvasTag).transform;
       _slideServise.InstantiateSlide(SlidesConstants.ALL_USERS_SLIDE);
       _competitorAdderPanelServise.InstantiatePanel();
-       _gameFactory.CreateProtocol(GameObject.FindWithTag(ProtocolParentTag));
-        }
+
+       //_gameFactory.CreateProtocol(GameObject.FindWithTag(ProtocolParentTag));
+       }
   }
 }

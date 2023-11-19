@@ -11,19 +11,15 @@ namespace CodeBase.Infrastructure.Factory
     public class GameFactory : IGameFactory
     {
         private readonly IAssetProvider _assets;
-        private ICompetitorsServise _competitorsServise;
-        private IAgeGroupsAdder _ageGroupsAdder;
 
-        public event Action ProtocolCreated;
+        //public event Action ProtocolCreated;
 
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
-        public GameFactory(IAssetProvider assets, ICompetitorsServise competitorsServise, IAgeGroupsAdder ageGroupsAdder)
+        public GameFactory(IAssetProvider assets)
         {
             _assets = assets;
-            _competitorsServise = competitorsServise;
-            _ageGroupsAdder = ageGroupsAdder;
         }
 
         

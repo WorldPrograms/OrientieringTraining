@@ -7,5 +7,7 @@ namespace CodeBase.Infrastructure.Services.CompetitorsServise
     {
         public GameEvents GameEvents { get; set; }
         public GameCompetitors GameCompetitors { get; set; }
+
+        public AgeGroupsAdder AgeGroupsAdder { get; set; }
     }
 }
